@@ -4,5 +4,8 @@ from .models import Item
 
 
 def item_list(request):
+    query = request.GET.get("q", "")
     items = Item.objects.select_related("bin")
-    return render(request, "catalog/item_list.html", {"items": items})
+    if query:
+        items = items.filter(name__icontains=query)
+    return render(request, "catalog/item_list.html", {"items": items, "query": query})
