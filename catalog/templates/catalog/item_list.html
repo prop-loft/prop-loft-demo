@@ -6,6 +6,11 @@
 </head>
 <body>
   <h1>Catalog</h1>
+  <form method="get" role="search">
+    <label for="q">Search by name</label>
+    <input id="q" name="q" type="search" value="{{ query }}">
+    <button type="submit">Search</button>
+  </form>
   {% if items %}
     <table>
       <thead>
@@ -23,6 +28,8 @@
         {% endfor %}
       </tbody>
     </table>
+  {% elif query %}
+    <p>No items match “{{ query }}”.</p>
   {% else %}
     <p>Nothing in the catalog yet. Add items in the admin.</p>
   {% endif %}
