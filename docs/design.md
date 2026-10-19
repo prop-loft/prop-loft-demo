@@ -157,7 +157,7 @@ Each milestone is a **vertical slice**: something a volunteer could use end to e
 | 4 | Roles: what a volunteer can do versus the wardrobe lead. Phone-friendly layout. | 2, 3 |
 | 5 | Deploy to the theater's server; seed 60 items; the strike-night trial. | 4 |
 
-**Where the repository stands:** milestone 1 is in progress. The item list works; search is next.
+**Where the repository stands:** milestone 1 is in progress. Items can be listed and searched by name; checkout is next.
 
 ---
 

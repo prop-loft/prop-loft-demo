@@ -4,7 +4,7 @@ Prop Loft is a catalog for the things a theater production keeps between shows. 
 
 > **A teaching project.** Prop Loft is the worked example for BYU's CS 301R, *Founding an Open-Source Project*. It's built in the open the way the course asks students to build theirs. The theater and the evidence cited in its design documents are invented for teaching.
 
-**Status:** early. The [design](docs/design.md) is approved; the app lists items, and search is next.
+**Status:** early. The [design](docs/design.md) is approved; the app lists items and searches them by name.
 
 ## Why "Prop Loft" and not "Backstage"
 
