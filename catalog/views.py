@@ -4,7 +4,7 @@ from .models import Item
 
 
 def item_list(request):
-    query = request.GET.get("q", "")
+    query = request.GET.get("q", "").strip()
     items = Item.objects.select_related("bin")
     if query:
         items = items.filter(name__icontains=query)

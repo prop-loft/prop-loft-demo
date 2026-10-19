@@ -42,6 +42,11 @@ class ItemSearchTests(TestCase):
 
         self.assertContains(response, "Bowler hat")
 
+    def test_ignores_spaces_around_the_query(self):
+        response = self.search("  bustle ")
+
+        self.assertContains(response, "Bustle skirt, black")
+
     def test_says_so_when_nothing_matches(self):
         response = self.search("tiara")
 
