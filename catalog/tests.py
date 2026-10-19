@@ -20,3 +20,29 @@ class ItemListTests(TestCase):
         response = self.client.get(reverse("catalog:item_list"))
 
         self.assertContains(response, "Nothing in the catalog yet")
+
+
+class ItemSearchTests(TestCase):
+    def setUp(self):
+        bin_a = Bin.objects.create(label="A-01")
+        Item.objects.create(name="Bustle skirt, black", bin=bin_a)
+        Item.objects.create(name="Bowler hat", bin=bin_a)
+
+    def search(self, query):
+        return self.client.get(reverse("catalog:item_list"), {"q": query})
+
+    def test_finds_items_by_part_of_the_name(self):
+        response = self.search("bustle")
+
+        self.assertContains(response, "Bustle skirt, black")
+        self.assertNotContains(response, "Bowler hat")
+
+    def test_ignores_case(self):
+        response = self.search("BOWLER")
+
+        self.assertContains(response, "Bowler hat")
+
+    def test_says_so_when_nothing_matches(self):
+        response = self.search("tiara")
+
+        self.assertContains(response, "No items match")
